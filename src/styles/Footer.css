@@ -1,0 +1,27 @@
+.footer {
+  margin-top: auto;
+  position: relative;
+  height: 100px;
+  color: white;
+}
+
+.footer-background-image {
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+  width: 100%;
+  background-image: url(../images/Footer.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 900px) {
+  .footer {
+    height: 0;
+  }
+  .footer-background-image {
+    background-image: none;
+  }
+}

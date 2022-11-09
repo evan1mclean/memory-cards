@@ -1,0 +1,7 @@
+@import url(./index.css);
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
