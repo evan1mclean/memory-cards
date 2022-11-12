@@ -29,7 +29,9 @@ import yoshi from "../images/melee-cards/yoshi.png";
 import youngLink from "../images/melee-cards/young-link.png";
 import zelda from "../images/melee-cards/zelda.png";
 
-const CardDisplay = () => {
+const CardDisplay = (props) => {
+  const {score} = props;
+
   const characterArray = [
     {
       id: uniqid(),
@@ -171,7 +173,7 @@ const CardDisplay = () => {
   useEffect(() => {
     const newCardArray = [...cardArray];
     shuffleCards(newCardArray);
-  },[])
+  },[score])
 
   return (
     <div className="card-display">
