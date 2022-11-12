@@ -1,0 +1,36 @@
+.card img {
+  background-image: url(../images/card-backdrop.png);
+  height: 100px;
+  width: 100px;
+}
+
+.card:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}
+
+.card-display {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(9, 100px);
+  justify-content: center;
+}
+
+.card:nth-child(19) {
+  grid-column-start: 2;
+}
+
+@media only screen and (max-width: 960px) {
+  .main {
+    padding: 20px;
+    overflow: scroll;
+  }
+  .card-display {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    justify-content: center;
+  }
+
+  .card:nth-child(19) {
+    grid-column-start: auto;
+  }
+}

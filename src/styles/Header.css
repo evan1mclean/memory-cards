@@ -36,6 +36,10 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .header {
+    min-height: 150px;
+  }
+
   .header-content {
     flex-direction: column;
     justify-content: center;
@@ -55,8 +59,15 @@
   }
 
   .header-background-image {
+    height: 100%;
     background: none;
     background-color: #cdcdcd;
     border-bottom: 2px solid #f1f1f1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header h1 {
+    font-size: 1.5rem;
   }
 }
