@@ -17,18 +17,26 @@ const Main = () => {
 
   const updateBestScore = () => {
     if (score >= bestScore) {
-      setBestScore(score);
+      setBestScore(bestScore + 1);
     }
   }
 
-  const game = (e) => {
-    console.log(e.target);
+  const handleClick = (e) => {
+    let target = e.target.parentNode.title;
+    if (!clickedCards.includes(target)) {
+      setClickedCards([...clickedCards, target])
+      incrementScore();
+      updateBestScore();
+    } else {
+      resetScore();
+      setClickedCards([]);
+    }
   }
 
   return (
     <div className="main">
       <Scoreboard score={score} bestScore={bestScore} />
-      <CardDisplay score={score} game={game}/>
+      <CardDisplay score={score} handleClick={handleClick}/>
     </div>
   );
 };

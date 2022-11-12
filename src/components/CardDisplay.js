@@ -30,7 +30,7 @@ import youngLink from "../images/melee-cards/young-link.png";
 import zelda from "../images/melee-cards/zelda.png";
 
 const CardDisplay = (props) => {
-  const {score} = props;
+  const { score, handleClick } = props;
 
   const characterArray = [
     {
@@ -162,6 +162,7 @@ const CardDisplay = (props) => {
 
   const [cardArray, setCardArray] = useState(characterArray);
 
+  //JavaScript implementation of the Durstenfeld shuffle, an optimized version of Fisher-Yates
   const shuffleCards = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -173,12 +174,21 @@ const CardDisplay = (props) => {
   useEffect(() => {
     const newCardArray = [...cardArray];
     shuffleCards(newCardArray);
-  },[score])
+    //Eslint didn't like that I'm referencing cardArray without it in the dependency array. If I put it in an infinite loop is created however
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [score]);
 
   return (
     <div className="card-display">
       {cardArray.map((card) => {
-        return <Card key={card.id} src={card.src} title={card.title} />;
+        return (
+          <Card
+            key={card.id}
+            src={card.src}
+            title={card.title}
+            handleClick={handleClick}
+          />
+        );
       })}
     </div>
   );

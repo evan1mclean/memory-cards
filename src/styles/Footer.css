@@ -23,5 +23,6 @@
   }
   .footer-background-image {
     background-image: none;
+    z-index: -1;
   }
 }
